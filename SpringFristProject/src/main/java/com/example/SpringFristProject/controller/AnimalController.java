@@ -2,9 +2,7 @@ package com.example.SpringFristProject.controller;
 
 import com.example.SpringFristProject.entity.Animal;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,4 +27,16 @@ public class AnimalController {
     public List<Animal> findAll(){
         return animals.values().stream().toList();
     }
+    @GetMapping("/{id}")
+    public Animal findAnimal(@PathVariable int id){
+        return animals.get(id);
+    }
+    @PutMapping("/{id}")
+    public void updateAnimal(@PathVariable int id, @RequestBody Animal updatedAnimal){
+        if(animals.containsKey(id)){
+            Animal exAnimal = animals.get(id);
+            exAnimal.setName(updatedAnimal.getName());
+        }
+    }
+
 }
