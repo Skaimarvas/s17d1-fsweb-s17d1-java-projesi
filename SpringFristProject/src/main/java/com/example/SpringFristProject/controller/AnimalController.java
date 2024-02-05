@@ -31,6 +31,8 @@ public class AnimalController {
     public Animal findAnimal(@PathVariable int id){
         return animals.get(id);
     }
+
+
     @PutMapping("/{id}")
     public void updateAnimal(@PathVariable int id, @RequestBody Animal updatedAnimal){
         if(animals.containsKey(id)){
@@ -38,5 +40,8 @@ public class AnimalController {
             exAnimal.setName(updatedAnimal.getName());
         }
     }
-
+    @DeleteMapping("/{id}")
+    public void deleteAnimal(@PathVariable int id) {
+        animals.remove(id);
+    }
 }
