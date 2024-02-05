@@ -32,6 +32,10 @@ public class AnimalController {
         return animals.get(id);
     }
 
+    @PostMapping
+    public void addAnimal(@RequestBody Animal animal) {
+        animals.put(animal.getId(), animal);
+    }
 
     @PutMapping("/{id}")
     public void updateAnimal(@PathVariable int id, @RequestBody Animal updatedAnimal){
