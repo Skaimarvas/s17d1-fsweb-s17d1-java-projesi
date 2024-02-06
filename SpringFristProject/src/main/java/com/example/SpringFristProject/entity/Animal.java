@@ -2,6 +2,10 @@ package com.example.SpringFristProject.entity;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * All task were done
+ */
+
 @Component
 public class Animal {
     private int id;
