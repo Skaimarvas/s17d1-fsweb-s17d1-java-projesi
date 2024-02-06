@@ -23,7 +23,7 @@ public class AnimalController {
         return "App Name: " + appName + ", App Version: " + appVersion;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<Animal> findAll(){
         return animals.values().stream().toList();
     }
